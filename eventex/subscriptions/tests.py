@@ -94,3 +94,4 @@ class SusbscribeSuccessMesage(TestCase):
                     email='joe.dfq@gmail.com',phone='31-975639338')
         response = self.client.post('/inscricao/', data, follow=True)
         self.assertContains(response, 'Inscrição realizada com sucesso!')
+
