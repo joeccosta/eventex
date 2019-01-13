@@ -1,0 +1,22 @@
+SECRET_KEY=_)$zdg$g5uscqy5t&q#+j4d(axk_u&cy@mtv9n%+ib!y5c-9y6
+DEBUG=True
+
+#config do desenvolvimento para envio de email
+
+EMAIL_BACKEND=django.core.mail.backends.console.EmailBackend
+EMAIL_HOST=localhost
+EMAIL_PORT=25
+EMAIL_USE_TLS=False
+EMAIL_HOST_USER=
+EMAIL_HOST_PASSWORD=
+
+# Config da produção email sendgrid
+
+#EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
+#EMAIL_HOST=smtp.sendgrid.com
+#EMAIL_PORT=587
+#EMAIL_USE_TLS=True
+#EMAIL_HOST_USER=app119724704@heroku.com
+#EMAIL_HOST_PASSWORD=mwzprzsq5654
+#SENDGRID_PASSWORD=mwzprzsq5654
+#SENDGRID_USERNAME=app119724704@heroku.com
