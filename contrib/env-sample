@@ -1,4 +1,4 @@
-SECRET_KEY=_)$zdg$g5uscqy5t&q#+j4d(axk_u&cy@mtv9n%+ib!y5c-9y6
+SECRET_KEY=THIS_IS_NOT_A_GOOD_SECRETY
 DEBUG=True
 
 #config do desenvolvimento para envio de email
