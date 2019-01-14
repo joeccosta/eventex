@@ -4,7 +4,7 @@ Sistema de Eventos encomendado pela Morena
 
 [![Build Status](https://travis-ci.org/joeccosta/eventex.svg?branch=master)](https://travis-ci.org/joeccosta/eventex)
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/6718a626f4a8b5ed5101/maintainability)](https://codeclimate.com/github/joeccosta/eventex/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/f455160325fa2243111e/maintainability)](https://codeclimate.com/github/joeccosta/eventex/maintainability)
 
 ## Como desenvolver?
 
