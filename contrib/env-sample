@@ -1,5 +1,6 @@
 SECRET_KEY=THIS_IS_NOT_A_GOOD_SECRETY
 DEBUG=True
+ALLOWED_HOSTS=127.0.0.1, .localhost, .herokuapp.com
 
 #config do desenvolvimento para envio de email
 
