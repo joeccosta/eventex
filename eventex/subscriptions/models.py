@@ -10,7 +10,7 @@ class Subscription(models.Model):
 
     class Meta:
         verbose_name = 'inscrição'
-        verbose_name = 'inscrições'
+        verbose_name_plural = 'inscrições'
         ordering = ('-created_at',)
 
 
