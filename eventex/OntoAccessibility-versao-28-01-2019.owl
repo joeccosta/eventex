@@ -34,6 +34,17 @@
     
 
 
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#brings -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#brings">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Accessibility"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Sustainability"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#has -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#has">
@@ -79,7 +90,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#implies">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <owl:inverseOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#isDefinedBy"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#isInducedBy"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#EnvironmentBarrier"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#SocialParticipationLevel"/>
     </owl:ObjectProperty>
@@ -96,12 +107,13 @@
     
 
 
-    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#isDefinedBy -->
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#isInducedBy -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#isDefinedBy">
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#isInducedBy">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#SocialParticipationLevel"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#EnvironmentBarrier"/>
+        <rdfs:comment>Inverso de Implica ou seja, Se A implica B, então B é causado por A</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -167,6 +179,16 @@
     
 
 
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#triesToSolve -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#triesToSolve">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#IssuesApproach"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#EnvironmentBarrier"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -183,6 +205,12 @@
     <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Accessibility">
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#brings"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Sustainability"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#isBlockedBy"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#EnvironmentBarrier"/>
             </owl:Restriction>
@@ -197,6 +225,18 @@
     
 
 
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#AccessibilityResource -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#AccessibilityResource"/>
+    
+
+
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#AccessibilityStakeholder -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#AccessibilityStakeholder"/>
+    
+
+
     <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#AccessibleAudioVisualTranslation -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#AccessibleAudioVisualTranslation">
@@ -205,10 +245,34 @@
     
 
 
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Adolescence -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Adolescence">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#GenerationalDiversity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Adulthood -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Adulthood">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#GenerationalDiversity"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#ArchitectonicBarrier -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#ArchitectonicBarrier">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#EnvironmentBarrier"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#AssistiveTechnology -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#AssistiveTechnology">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#AccessibilityResource"/>
     </owl:Class>
     
 
@@ -269,6 +333,14 @@
     
 
 
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Childhood -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Childhood">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#GenerationalDiversity"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#ClosedReception -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#ClosedReception">
@@ -286,10 +358,50 @@
     
 
 
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Consumer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Consumer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#AccessibilityStakeholder"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#CulturalBarrier -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#CulturalBarrier">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#EnvironmentBarrier"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#CulturalDiversity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#CulturalDiversity">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#HumanDiversity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#DeafBlindness -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#DeafBlindness">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#SensoryDisable"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Deliberation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Deliberation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#AccessibilityStakeholder"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#DisabilityAbilities -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#DisabilityAbilities">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#HumanAbilities"/>
     </owl:Class>
     
 
@@ -307,6 +419,14 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#EconomicSustainability">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Sustainability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Elderly -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Elderly">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#GenerationalDiversity"/>
     </owl:Class>
     
 
@@ -356,6 +476,14 @@
     
 
 
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#EthnicDiversity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#EthnicDiversity">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#HumanDiversity"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Exclusion -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Exclusion">
@@ -364,10 +492,60 @@
     
 
 
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#GenderDiversity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#GenderDiversity">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#HumanDiversity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#GenerationalDiversity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#GenerationalDiversity">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#HumanDiversity"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#GeopoliticalBarrier -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#GeopoliticalBarrier">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#EnvironmentBarrier"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#HumanAbilities -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#HumanAbilities"/>
+    
+
+
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#HumanDisabilities -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#HumanDisabilities"/>
+    
+
+
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#HumanDiversity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#HumanDiversity"/>
+    
+
+
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#HumanSpecifities -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#HumanSpecifities">
+        <rdfs:comment>Aqui colococaremos as questões que envolvem as deficiências? Devemos usar o nome deficiência?</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#IdeologicalDiversity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#IdeologicalDiversity">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#HumanDiversity"/>
     </owl:Class>
     
 
@@ -388,6 +566,14 @@
     
 
 
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#IntelletcualAbilities -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#IntelletcualAbilities">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#HumanAbilities"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#IssuesApproach -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#IssuesApproach">
@@ -397,6 +583,20 @@
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#SocialParticipationLevel"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#triesToSolve"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#EnvironmentBarrier"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#LinguisticDiversity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#LinguisticDiversity">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#HumanDiversity"/>
     </owl:Class>
     
 
@@ -417,6 +617,22 @@
     
 
 
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#MentalAbilities -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#MentalAbilities">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#HumanAbilities"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#MetaphysicalAbilities -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#MetaphysicalAbilities">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#HumanAbilities"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#OpenReception -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#OpenReception">
@@ -429,6 +645,30 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#PedagogicalBarrier">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#EnvironmentBarrier"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#PhysicalAbilities -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#PhysicalAbilities">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#HumanAbilities"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#PoliticalDiversity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#PoliticalDiversity">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#HumanDiversity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Producer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Producer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#AccessibilityStakeholder"/>
     </owl:Class>
     
 
@@ -449,10 +689,50 @@
     
 
 
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#ReligiousDiversity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#ReligiousDiversity">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#HumanDiversity"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Segregation -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Segregation">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#SocialParticipationLevel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#SensoryAbilities -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#SensoryAbilities">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#HumanAbilities"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#SensoryDisable -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#SensoryDisable">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#HumanSpecifities"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#SexDiversity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#SexDiversity">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#HumanDiversity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#SexualityDiversity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#SexualityDiversity">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#HumanDiversity"/>
     </owl:Class>
     
 
@@ -554,12 +834,20 @@
     
 
 
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#SocialAbilities -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#SocialAbilities">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#HumanAbilities"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#SocialParticipationLevel -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#SocialParticipationLevel">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#isDefinedBy"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#isInducedBy"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#ArchitectonicBarrier"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -607,13 +895,53 @@
 
     <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Sustainability -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Sustainability"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Sustainability">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#brings"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Accessibility"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#TraditionsDiversity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#TraditionsDiversity">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#HumanDiversity"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#TranslationStudies -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#TranslationStudies"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#TranslationStudies">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#solve"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#AttitidinalBarrier"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#solve"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#CulturalBarrier"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#solve"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#GeopoliticalBarrier"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#solve"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#PedagogicalBarrier"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
     
 
 
@@ -673,6 +1001,42 @@
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Consumer"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Deliberation"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Producer"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#CulturalDiversity"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#EthnicDiversity"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#GenderDiversity"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#GenerationalDiversity"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#IdeologicalDiversity"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#LinguisticDiversity"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#PoliticalDiversity"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#ReligiousDiversity"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#SexDiversity"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#SexualityDiversity"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#TraditionsDiversity"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#DisabilityAbilities"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#IntelletcualAbilities"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#MentalAbilities"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#MetaphysicalAbilities"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#PhysicalAbilities"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#SensoryAbilities"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#SocialAbilities"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
             <rdf:Description rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#EconomicSustainability"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#EnvironmentalSustainability"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#SocialSustainability"/>
@@ -682,10 +1046,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
             <rdf:Description rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#EnvironmentBarrier"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#IssuesApproach"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#SocialParticipationLevel"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Exclusion"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#Sustainability"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/joeccosta/ontologies/2019/0/OntoAccessibility.owl#TranslationStudies"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
