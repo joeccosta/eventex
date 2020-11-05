@@ -82,10 +82,17 @@ WSGI_APPLICATION = 'eventex.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 DATABASES = {
-    'default': config('DATABASE_URL', default=default_dburl, cast=dburl),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ.get('DATABASE_DB', 'dbnew2'),
+        'USER': os.environ.get('DATABASE_USER', 'joeccosta'),
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD', 'Salmo83#19'),
+        'HOST': os.environ.get('DATABASE_HOST', 'localhost'),  # amazon
+        'PORT': os.environ.get('DATABASE_PORT', '5432'),
+    }
 }
+
 
 
 # Password validation

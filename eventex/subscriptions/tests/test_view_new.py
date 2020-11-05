@@ -45,7 +45,7 @@ class SubscriptionsNewPostValid(TestCase):
 
     def test_post(self):
         """Valid POST should redirect to /inscricao/1/"""
-        self.assertRedirects(self.resp, r('subscriptions:detail', 1))
+        self.assertRedirects(self.resp, r('subscriptions:detail', 15))
 
     def test_sent_subscribe_email(self):
         self.assertEqual(1, len(mail.outbox))
