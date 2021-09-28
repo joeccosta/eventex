@@ -16,7 +16,7 @@ def talk_list(request):
     #__lt less than (menor que)
     #__gte greatest or iqual (maior ou igual a)
     context = {
-        'morning_talks': Talk.objects.filter(start__lt='12:00'),
-        'afternoon_talks': Talk.objects.filter(start__gte='12:00'),
+        'morning_talks': Talk.objects.at_morning(),
+        'afternoon_talks': Talk.objects.at_afternoon(),
     }
     return render(request, 'core/talk_list.html', context)
